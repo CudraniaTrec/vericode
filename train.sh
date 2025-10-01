@@ -1,10 +1,11 @@
 project_name='VeriCode'
-exp_name='Test'
+exp_name='grpo_qwen0_5B_py2dfy'
 WORLDSIZE=1
-GPUS_PER_NODE=8 
-BoN=8
-BATCH_SIZE=1024  
-PPO_MINI_BATCH_SIZE=128  
+GPUS_PER_NODE=6
+BoN=4
+BATCH_SIZE=384  
+PPO_MINI_BATCH_SIZE=96
+PPO_MICRO_BATCH_SIZE=16  
 TENSOR_MODEL_PARALLEL_SIZE=1
 
 MODEL_PATH="sft_ckpts/sft_0.5B" # Adjust if you want to use the 7B model or another
@@ -36,7 +37,7 @@ python -m verl.trainer.main_ppo \
     actor_rollout_ref.actor.fsdp_config.optimizer_offload=False \
     actor_rollout_ref.rollout.tensor_model_parallel_size=${TENSOR_MODEL_PARALLEL_SIZE} \
     actor_rollout_ref.rollout.name=vllm \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.75 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.8 \
     actor_rollout_ref.rollout.n=${BoN} \
     actor_rollout_ref.ref.fsdp_config.param_offload=False \
     actor_rollout_ref.rollout.enforce_eager=False \
@@ -51,7 +52,7 @@ python -m verl.trainer.main_ppo \
     trainer.val_before_train=True \
     trainer.n_gpus_per_node=${GPUS_PER_NODE} \
     trainer.nnodes=${WORLDSIZE} \
-    trainer.save_freq=2 \
-    trainer.test_freq=2 \
+    trainer.save_freq=5 \
+    trainer.test_freq=5 \
     trainer.default_local_dir=rl_checkpoints/${exp_name} \
-    trainer.total_epochs=20 | tee ${exp_name}.log
+    trainer.total_epochs=15 | tee ${exp_name}.log

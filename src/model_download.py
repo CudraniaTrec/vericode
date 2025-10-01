@@ -1,7 +1,9 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-model_id = "Veri-Code/sft_0.5B" # Example checkpoint; other available include sft_1.5B, sft_3B, sft_7B, sft_14B, 14B-RL-entropy
+model_name = "sft_1.5B"
+model_id = f"Veri-Code/{model_name}" 
+# Example checkpoint; available include sft_0.5B, sft_1.5B, sft_3B, sft_7B, sft_14B, 14B-RL-entropy
 
 tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(
@@ -11,8 +13,8 @@ model = AutoModelForCausalLM.from_pretrained(
     trust_remote_code=True,
 )
 
-model.save_pretrained("sft_ckpts/sft_0.5B")
-tokenizer.save_pretrained("sft_ckpts/sft_0.5B")
+model.save_pretrained(f"sft_ckpts/{model_name}")
+tokenizer.save_pretrained(f"sft_ckpts/{model_name}")
 
 # Example prompt for Dafny code generation
 # This prompt asks the model to implement a simple Max method in Dafny.
