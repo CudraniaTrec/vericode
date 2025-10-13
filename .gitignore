@@ -6,6 +6,9 @@ rl_checkpoints/*
 sft_ckpts/*
 swanlog/
 outputs/*
+LLaMA-Factory/
+# 数据集目录 (100G+)
+dataset/*_files/*/
 
 # 机器学习
 *.ckpt
