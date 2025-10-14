@@ -1,0 +1,8 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_591-gpt-4-temp_0.75-k_4.dfy(2,13): Warning: the type of the other operand is a non-null type, so this comparison with 'null' will always return 'true' (to make it possible for variable 'a' to have the value 'null', declare its type to be 'array?<int>')
+  |
+2 |   requires a != null && a.Length >= 2
+  |            ^^^^^^^^^
+
+
+Dafny program verifier finished with 2 verified, 0 errors
+Compilation failed because warnings were found and --allow-warnings is false

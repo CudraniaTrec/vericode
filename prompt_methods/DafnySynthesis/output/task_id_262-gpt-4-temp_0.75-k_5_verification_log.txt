@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_262-gpt-4-temp_0.75-k_5.dfy(3,16): Error: type seq<seq<T>> does not have a member Length
+  |
+3 |     ensures res.Length == 2
+  |             ^^^^^^^^^^
+
+1 resolution/type errors detected in task_id_262-gpt-4-temp_0.75-k_5.dfy

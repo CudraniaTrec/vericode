@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_628-gpt-4-temp_0.75-k_2.dfy(4,27): Error: lbracket expected
+  |
+4 |   var sb := new seq<char>[];
+  |                            ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_628-gpt-4-temp_0.75-k_2.dfy(20,9): Error: invalid Rhs
+   |
+20 |   res := string(sb);
+   |          ^
+
+2 parse errors detected in task_id_628-gpt-4-temp_0.75-k_2.dfy

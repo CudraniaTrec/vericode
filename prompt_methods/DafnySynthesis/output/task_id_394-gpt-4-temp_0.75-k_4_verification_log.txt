@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_394-gpt-4-temp_0.75-k_4.dfy(17,16): Error: == can only be applied to expressions of types that support equality (got T) (perhaps try declaring type parameter 'T' on line 1 as 'T(==)', which says it can only be instantiated with a type that supports equality)
+   |
+17 |             if s[i] == s[j] {
+   |                ^^^^
+
+1 resolution/type errors detected in task_id_394-gpt-4-temp_0.75-k_4.dfy

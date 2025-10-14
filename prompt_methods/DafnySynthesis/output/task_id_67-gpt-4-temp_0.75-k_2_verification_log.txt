@@ -1,0 +1,51 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(10,11): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+10 |     bell[0][0] := 1;
+   |     ^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(13,15): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+13 |         bell[i][0] := bell[i-1][i-1];
+   |         ^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(10,8): Error: LHS of array assignment must denote an array element (found int)
+   |
+10 |     bell[0][0] := 1;
+   |     ^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(13,12): Error: LHS of array assignment must denote an array element (found int)
+   |
+13 |         bell[i][0] := bell[i-1][i-1];
+   |         ^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(13,31): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+13 |         bell[i][0] := bell[i-1][i-1];
+   |                       ^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(15,19): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+15 |             bell[i][j] := bell[i][j-1] + bell[i-1][j-1];
+   |             ^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(15,33): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+15 |             bell[i][j] := bell[i][j-1] + bell[i-1][j-1];
+   |                           ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(15,16): Error: LHS of array assignment must denote an array element (found int)
+   |
+15 |             bell[i][j] := bell[i][j-1] + bell[i-1][j-1];
+   |             ^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(15,50): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+15 |             bell[i][j] := bell[i][j-1] + bell[i-1][j-1];
+   |                                          ^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_67-gpt-4-temp_0.75-k_2.dfy(18,18): Error: element selection requires a sequence, array, multiset, or map (got int)
+   |
+18 |     res := bell[n][0];
+   |            ^^^^^^^^^^
+
+10 resolution/type errors detected in task_id_67-gpt-4-temp_0.75-k_2.dfy

@@ -1,0 +1,301 @@
+
+class {:autocontracts} CarPark {
+    const totalSpaces: nat := 10;
+    const normalSpaces: nat:= 7;
+    const reservedSpaces: nat := 3;
+    const badParkingBuffer: int := 5;
+
+    var weekend: bool;
+    var subscriptions: set<string>;
+    var carPark: set<string>;
+    var reservedCarPark: set<string>;
+
+    constructor()
+    requires true
+    ensures this.subscriptions == {} && this.carPark == {} && this.reservedCarPark == {} && this.weekend == false;
+    {
+      // Strongest possible annotation: after constructor, Valid() holds
+      assert subscriptions == {};
+      assert carPark == {};
+      assert reservedCarPark == {};
+      assert weekend == false;
+      assert Valid();
+
+      this.subscriptions := {};
+      this.carPark := {};
+      this.reservedCarPark := {};
+      this.weekend := false;
+    }
+
+    ghost predicate Valid()
+    reads this
+    {
+      carPark * reservedCarPark == {} &&
+      |carPark| <= totalSpaces + badParkingBuffer &&
+      (normalSpaces + reservedSpaces) == totalSpaces &&
+      |reservedCarPark| <= reservedSpaces
+    }
+
+    method leaveCarPark(car: string) returns (success: bool)
+    requires true
+    modifies this
+    ensures success ==> (((car in old(carPark)) && carPark == old(carPark) - {car} && reservedCarPark == old(reservedCarPark)) || ((car in old(reservedCarPark)) && reservedCarPark == old(reservedCarPark) - {car} && carPark == old(carPark)));
+    ensures success ==> (car !in carPark) && (car !in reservedCarPark);
+    ensures !success ==> carPark == old(carPark) && reservedCarPark == old(reservedCarPark) && (car !in old(carPark)) && (car !in old(reservedCarPark));
+    ensures subscriptions == old(subscriptions) && weekend == old(weekend);
+    {
+      // Strongest possible annotation: at start, sets unchanged
+      assert carPark == old(carPark);
+      assert reservedCarPark == old(reservedCarPark);
+      assert subscriptions == old(subscriptions);
+      assert weekend == old(weekend);
+
+      success := false;
+
+      if car in carPark {
+        // Strongest possible annotation: car is in carPark, not in reservedCarPark
+        assert car in old(carPark);
+        assert car !in old(reservedCarPark);
+        carPark := carPark - {car};
+        assert car !in carPark;
+        assert reservedCarPark == old(reservedCarPark);
+        success := true;
+        assert carPark == old(carPark) - {car};
+        assert reservedCarPark == old(reservedCarPark);
+      } else if car in reservedCarPark {
+        // Strongest possible annotation: car is in reservedCarPark, not in carPark
+        assert car in old(reservedCarPark);
+        assert car !in old(carPark);
+        reservedCarPark := reservedCarPark - {car};
+        assert reservedCarPark == old(reservedCarPark) - {car};
+        assert car !in reservedCarPark;
+        assert carPark == old(carPark);
+        success := true;
+      }
+      // Strongest possible annotation: postconditions
+      if success {
+        assert (car !in carPark) && (car !in reservedCarPark);
+      } else {
+        assert carPark == old(carPark) && reservedCarPark == old(reservedCarPark);
+        assert (car !in old(carPark)) && (car !in old(reservedCarPark));
+      }
+    }
+
+    method checkAvailability() returns (availableSpaces: int)
+    requires true
+    modifies this
+    ensures weekend ==> availableSpaces == (normalSpaces - old(|carPark|)) + (reservedSpaces - old(|reservedCarPark|)) - badParkingBuffer;
+    ensures !weekend ==> availableSpaces == (normalSpaces - old(|carPark|)) - badParkingBuffer;
+    ensures carPark == old(carPark) && reservedCarPark == old(reservedCarPark) && weekend == old(weekend) && subscriptions == old(subscriptions);
+    {
+      // Strongest possible annotation: sets unchanged
+      assert carPark == old(carPark);
+      assert reservedCarPark == old(reservedCarPark);
+      assert subscriptions == old(subscriptions);
+      assert weekend == old(weekend);
+
+      if (weekend){
+        availableSpaces := (normalSpaces - |carPark|) + (reservedSpaces - |reservedCarPark|) - badParkingBuffer;
+        assert availableSpaces == (normalSpaces - old(|carPark|)) + (reservedSpaces - old(|reservedCarPark|)) - badParkingBuffer;
+      } else{
+        availableSpaces := (normalSpaces - |carPark|) - badParkingBuffer;
+        assert availableSpaces == (normalSpaces - old(|carPark|)) - badParkingBuffer;
+      }
+      // Strongest possible annotation: postconditions
+      assert carPark == old(carPark) && reservedCarPark == old(reservedCarPark) && weekend == old(weekend) && subscriptions == old(subscriptions);
+    }
+
+    method makeSubscription(car: string) returns (success: bool)
+    requires true
+    modifies this
+    ensures success ==> old(|subscriptions|) < reservedSpaces && car !in old(subscriptions) && subscriptions == old(subscriptions) + {car};
+    ensures !success ==> subscriptions == old(subscriptions) && (car in old(subscriptions) || old(|subscriptions|) >= reservedSpaces);
+    ensures carPark == old(carPark) && reservedCarPark == old(reservedCarPark) && weekend == old(weekend);
+    {
+      // Strongest possible annotation: sets unchanged
+      assert carPark == old(carPark);
+      assert reservedCarPark == old(reservedCarPark);
+      assert weekend == old(weekend);
+
+      if |subscriptions| >= reservedSpaces || car in subscriptions {
+        assert |subscriptions| >= reservedSpaces || car in subscriptions;
+        success := false;
+        assert subscriptions == old(subscriptions);
+      } else {
+        assert |subscriptions| < reservedSpaces && car !in subscriptions;
+        subscriptions := subscriptions + {car};
+        assert subscriptions == old(subscriptions) + {car};
+        success := true;
+      }
+      // Strongest possible annotation: postconditions
+      if success {
+        assert old(|subscriptions|) < reservedSpaces;
+        assert car !in old(subscriptions);
+        assert subscriptions == old(subscriptions) + {car};
+      } else {
+        assert subscriptions == old(subscriptions);
+        assert (car in old(subscriptions) || old(|subscriptions|) >= reservedSpaces);
+      }
+      assert carPark == old(carPark) && reservedCarPark == old(reservedCarPark) && weekend == old(weekend);
+    }
+
+    method openReservedArea()
+    requires true
+    modifies this
+    ensures carPark == old(carPark) && reservedCarPark == old(reservedCarPark) && weekend == true && subscriptions == old(subscriptions);
+    {
+      // Strongest possible annotation: sets unchanged except weekend
+      assert carPark == old(carPark);
+      assert reservedCarPark == old(reservedCarPark);
+      assert subscriptions == old(subscriptions);
+
+      weekend := true;
+
+      assert carPark == old(carPark);
+      assert reservedCarPark == old(reservedCarPark);
+      assert subscriptions == old(subscriptions);
+      assert weekend == true;
+    }
+
+    method closeCarPark()
+    requires true
+    modifies this
+    ensures carPark == {} && reservedCarPark == {} && subscriptions == {}
+    ensures weekend == old(weekend);
+
+    {
+      // Strongest possible annotation: only sets are cleared, weekend unchanged
+      var oldWeekend := weekend;
+      carPark := {};
+      reservedCarPark := {};
+      subscriptions := {};
+      assert carPark == {};
+      assert reservedCarPark == {};
+      assert subscriptions == {};
+      assert weekend == oldWeekend;
+    }
+
+    method enterCarPark(car: string) returns (success: bool)
+    requires true
+    modifies this;
+
+    ensures success ==> (car !in old(carPark)) && (car !in old(reservedCarPark)) && (old(|carPark|) < normalSpaces - badParkingBuffer);
+    ensures success ==> carPark == old(carPark) + {car};
+    ensures !success ==> carPark == old(carPark) && reservedCarPark == old(reservedCarPark);
+    ensures !success ==> (car in old(carPark)) || (car in old(reservedCarPark) || (old(|carPark|) >= normalSpaces - badParkingBuffer));
+    ensures subscriptions == old(subscriptions) && reservedCarPark == old(reservedCarPark) && weekend == old(weekend);
+
+    {
+      // Strongest possible annotation: sets unchanged at start
+      assert subscriptions == old(subscriptions);
+      assert reservedCarPark == old(reservedCarPark);
+      assert weekend == old(weekend);
+
+      if (|carPark| >= normalSpaces - badParkingBuffer || car in carPark || car in reservedCarPark) {
+        assert (|carPark| >= normalSpaces - badParkingBuffer) || (car in carPark) || (car in reservedCarPark);
+        assert carPark == old(carPark);
+        assert reservedCarPark == old(reservedCarPark);
+        assert subscriptions == old(subscriptions);
+        assert weekend == old(weekend);
+        return false;
+      }
+      else
+      {
+        assert |carPark| < normalSpaces - badParkingBuffer;
+        assert car !in carPark;
+        assert car !in reservedCarPark;
+        carPark := carPark + {car};
+        assert carPark == old(carPark) + {car};
+        assert reservedCarPark == old(reservedCarPark);
+        assert subscriptions == old(subscriptions);
+        assert weekend == old(weekend);
+        return true;
+      }
+    }
+
+    method enterReservedCarPark(car: string) returns (success: bool)
+    requires true
+    modifies this;
+
+    ensures success ==> (car !in old(carPark)) && (car !in old(reservedCarPark)) && (old(|reservedCarPark|) < reservedSpaces) && (car in subscriptions || weekend == true);
+    ensures success ==> reservedCarPark == old(reservedCarPark) + {car};
+    ensures !success ==> carPark == old(carPark) && reservedCarPark == old(reservedCarPark);
+    ensures !success ==> (car in old(carPark)) || (car in old(reservedCarPark) || (old(|reservedCarPark|) >= reservedSpaces) || (car !in subscriptions && weekend == false));
+    ensures subscriptions == old(subscriptions) && carPark == old(carPark) && weekend == old(weekend);
+    ensures weekend == old(weekend) && subscriptions == old(subscriptions);
+
+    {
+      // Strongest possible annotation: sets unchanged at start
+      assert subscriptions == old(subscriptions);
+      assert carPark == old(carPark);
+      assert weekend == old(weekend);
+
+      if (|reservedCarPark| >= reservedSpaces || car in carPark || car in reservedCarPark || (car !in subscriptions && weekend == false)) {
+        assert (|reservedCarPark| >= reservedSpaces) || (car in carPark) || (car in reservedCarPark) || (car !in subscriptions && weekend == false);
+        assert carPark == old(carPark);
+        assert reservedCarPark == old(reservedCarPark);
+        assert subscriptions == old(subscriptions);
+        assert weekend == old(weekend);
+        return false;
+      }
+      else
+      {
+        assert |reservedCarPark| < reservedSpaces;
+        assert car !in reservedCarPark;
+        assert car !in carPark;
+        assert car in subscriptions || weekend == true;
+        reservedCarPark := reservedCarPark + {car};
+        assert reservedCarPark == old(reservedCarPark) + {car};
+        assert carPark == old(carPark);
+        assert subscriptions == old(subscriptions);
+        assert weekend == old(weekend);
+        return true;
+      }
+    }
+}
+
+method Main() {
+  var carPark := new CarPark();
+
+  var availableSpaces := carPark.checkAvailability();
+
+  var success := carPark.enterCarPark("car1");
+  availableSpaces := carPark.checkAvailability();
+
+  success := carPark.enterCarPark("car2");
+  availableSpaces := carPark.checkAvailability();
+
+  success := carPark.enterCarPark("car3");
+
+  success := carPark.makeSubscription("car4");
+
+  success := carPark.enterReservedCarPark("car4");
+  success := carPark.enterReservedCarPark("car5");
+
+  success := carPark.makeSubscription("car6");
+  success := carPark.makeSubscription("car7");
+  success := carPark.makeSubscription("car8");
+
+  success := carPark.enterReservedCarPark("car6");
+  success := carPark.enterReservedCarPark("car7");
+
+  success := carPark.leaveCarPark("car1");
+
+  success := carPark.leaveCarPark("car9");
+
+  success := carPark.leaveCarPark("car6");
+
+  carPark.closeCarPark();
+}
+
+method MainB () {
+  var carPark := new CarPark();
+
+  carPark.openReservedArea();
+
+  var success := carPark.enterReservedCarPark("car3");
+
+  carPark.closeCarPark();
+}
+
+function abs(a: real) : real {if a>0.0 then a else -a}

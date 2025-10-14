@@ -1,0 +1,8 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_283-gpt-4-temp_0.75-k_4.dfy(11,22): Error: this loop invariant could not be proved on entry
+ Related message: loop invariant violation
+   |
+11 |             invariant forall i :: 0 <= i < 10 ==> digits[i] >= 0
+   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 0 verified, 1 error

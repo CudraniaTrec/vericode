@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_138-gpt-4-temp_0.75-k_3.dfy(4,107): Error: closeparen expected
+  |
+4 |     ensures canRepresent <==> (exists S: set<int> :: S != {} && (forall k :: k in S ==> k > 0) && n == sum k | k in S :: 2^k)
+  |                                                                                                            ^
+
+1 parse errors detected in task_id_138-gpt-4-temp_0.75-k_3.dfy

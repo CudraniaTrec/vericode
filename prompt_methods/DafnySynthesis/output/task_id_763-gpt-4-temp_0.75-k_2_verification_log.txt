@@ -1,0 +1,16 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_763-gpt-4-temp_0.75-k_2.dfy(7,8): Error: invalid Ident
+  |
+7 |     var seq := [arr[i] | i := 0 .. arr.Length];
+  |         ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_763-gpt-4-temp_0.75-k_2.dfy(10,21): Error: openparen expected
+   |
+10 |     var sorted := seq[..];
+   |                      ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_763-gpt-4-temp_0.75-k_2.dfy(11,21): Error: invalid Suffix
+   |
+11 |     sorted := sorted[:];
+   |                      ^
+
+3 parse errors detected in task_id_763-gpt-4-temp_0.75-k_2.dfy

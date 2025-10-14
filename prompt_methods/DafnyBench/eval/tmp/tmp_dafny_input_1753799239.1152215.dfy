@@ -1,0 +1,24 @@
+function somaAteAberto(a:array<nat>, i:nat):nat
+requires i <= a.Length
+reads a
+{
+    if i ==0
+    then 0
+    else a[i-1] + somaAteAberto(a,i-1)
+}
+
+method somatorio(a:array<nat>) returns (s:nat)
+ensures s == somaAteAberto(a, a.Length)
+{
+    s := 0;
+    var i: nat := 0;
+    while i < a.Length
+        invariant 0 <= i <= a.Length
+        invariant s == somaAteAberto(a, i)
+    {
+        s := s + a[i];
+        i := i + 1;
+    }
+    // At this point, i == a.Length and s == somaAteAberto(a, a.Length)
+}
+function abs(a: real) : real {if a>0.0 then a else -a}

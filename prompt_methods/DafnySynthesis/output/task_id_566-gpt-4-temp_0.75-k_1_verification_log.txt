@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_566-gpt-4-temp_0.75-k_1.dfy(16,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+16 | function method SumDigitsSpec(n: nat): nat
+   | ^^^^^^^^^^^^^^^
+
+1 parse errors detected in task_id_566-gpt-4-temp_0.75-k_1.dfy

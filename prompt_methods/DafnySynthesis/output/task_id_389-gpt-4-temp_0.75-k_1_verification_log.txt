@@ -1,0 +1,41 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(2,61): Error: expression is not allowed to invoke a method (Lucas)
+  |
+2 |     ensures l == if n == 0 then 2 else if n == 1 then 1 else Lucas(n - 1) + Lucas(n - 2)
+  |                                                              ^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(2,66): Error: method call is not allowed to be used in an expression context (Lucas)
+  |
+2 |     ensures l == if n == 0 then 2 else if n == 1 then 1 else Lucas(n - 1) + Lucas(n - 2)
+  |                                                              ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(2,76): Error: expression is not allowed to invoke a method (Lucas)
+  |
+2 |     ensures l == if n == 0 then 2 else if n == 1 then 1 else Lucas(n - 1) + Lucas(n - 2)
+  |                                                                             ^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(2,81): Error: method call is not allowed to be used in an expression context (Lucas)
+  |
+2 |     ensures l == if n == 0 then 2 else if n == 1 then 1 else Lucas(n - 1) + Lucas(n - 2)
+  |                                                                             ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(14,27): Error: expression is not allowed to invoke a method (Lucas)
+   |
+14 |             invariant a == Lucas(i - 2)
+   |                            ^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(14,32): Error: method call is not allowed to be used in an expression context (Lucas)
+   |
+14 |             invariant a == Lucas(i - 2)
+   |                            ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(15,27): Error: expression is not allowed to invoke a method (Lucas)
+   |
+15 |             invariant b == Lucas(i - 1)
+   |                            ^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_389-gpt-4-temp_0.75-k_1.dfy(15,32): Error: method call is not allowed to be used in an expression context (Lucas)
+   |
+15 |             invariant b == Lucas(i - 1)
+   |                            ^^^^^^^^^^^^
+
+8 resolution/type errors detected in task_id_389-gpt-4-temp_0.75-k_1.dfy

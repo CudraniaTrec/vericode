@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_622-gpt-4-temp_0.75-k_5.dfy(6,22): Error: the two branches of an if-then-else expression must have the same type (got real and int)
+  |
+6 |     ensures median == if |A| % 2 == 1
+  |                       ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_622-gpt-4-temp_0.75-k_5.dfy(8,87): Error: type of right argument to / (real) must agree with the result type (int)
+  |
+8 |                       else ((Merge(A,B))[(|A|+|B|)/2 - 1] + (Merge(A,B))[(|A|+|B|)/2]) / 2.0
+  |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+2 resolution/type errors detected in task_id_622-gpt-4-temp_0.75-k_5.dfy

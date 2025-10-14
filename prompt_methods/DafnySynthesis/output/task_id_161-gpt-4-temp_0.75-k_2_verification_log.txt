@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_161-gpt-4-temp_0.75-k_2.dfy(4,27): Error: rbracket expected
+  |
+4 |   ensures result == [x | x := a[..], x !in remove[..]]
+  |                            ^
+
+1 parse errors detected in task_id_161-gpt-4-temp_0.75-k_2.dfy

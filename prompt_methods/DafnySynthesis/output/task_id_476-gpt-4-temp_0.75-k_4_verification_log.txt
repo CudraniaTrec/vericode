@@ -1,0 +1,31 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_476-gpt-4-temp_0.75-k_4.dfy(3,58): Error: incorrect argument type for function parameter 'a' (expected seq<int>, found array<int>)
+  |
+3 |     ensures forall i :: 0 <= i < a.Length ==> a[i] >= min(a) && a[i] <= max(a)
+  |                                                           ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_476-gpt-4-temp_0.75-k_4.dfy(3,76): Error: incorrect argument type for function parameter 'a' (expected seq<int>, found array<int>)
+  |
+3 |     ensures forall i :: 0 <= i < a.Length ==> a[i] >= min(a) && a[i] <= max(a)
+  |                                                                             ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_476-gpt-4-temp_0.75-k_4.dfy(4,23): Error: incorrect argument type for function parameter 'a' (expected seq<int>, found array<int>)
+  |
+4 |     ensures sum == min(a) + max(a)
+  |                        ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_476-gpt-4-temp_0.75-k_4.dfy(4,32): Error: incorrect argument type for function parameter 'a' (expected seq<int>, found array<int>)
+  |
+4 |     ensures sum == min(a) + max(a)
+  |                                 ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_476-gpt-4-temp_0.75-k_4.dfy(12,85): Error: non-function expression (of type int) is called with parameters
+   |
+12 |         invariant min == (if forall j :: 0 <= j < i ==> a[j] >= min then min else min(a[..i]))
+   |                                                                                   ^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_476-gpt-4-temp_0.75-k_4.dfy(13,85): Error: non-function expression (of type int) is called with parameters
+   |
+13 |         invariant max == (if forall j :: 0 <= j < i ==> a[j] <= max then max else max(a[..i]))
+   |                                                                                   ^^^^^^^^^^^
+
+6 resolution/type errors detected in task_id_476-gpt-4-temp_0.75-k_4.dfy

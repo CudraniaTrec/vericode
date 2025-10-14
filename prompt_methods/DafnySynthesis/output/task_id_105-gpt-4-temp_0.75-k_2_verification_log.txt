@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_105-gpt-4-temp_0.75-k_2.dfy(3,24): Error: verticalbar expected
+  |
+3 |     ensures count == |i :: 0 <= i < arr.Length && arr[i]|
+  |                         ^
+
+1 parse errors detected in task_id_105-gpt-4-temp_0.75-k_2.dfy

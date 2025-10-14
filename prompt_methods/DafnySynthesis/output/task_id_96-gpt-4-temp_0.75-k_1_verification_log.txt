@@ -1,0 +1,7 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_96-gpt-4-temp_0.75-k_1.dfy(1,7): Error: Verification of 'NumDivisors' timed out after 30 seconds. (the limit can be increased using --verification-time-limit)
+  |
+1 | method NumDivisors(n: int) returns (count: int)
+  |        ^^^^^^^^^^^
+
+
+Dafny program verifier finished with 1 verified, 0 errors, 1 time out

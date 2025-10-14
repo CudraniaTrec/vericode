@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_639-gpt-4-temp_0.75-k_1.dfy(2,93): Error: closeparen expected
+  |
+2 |     ensures total == sum(i | 0 <= i < |names| && |names[i]| > 0 && 'A' <= names[i][0] <= 'Z' :: |names[i]|)
+  |                                                                                              ^
+
+1 parse errors detected in task_id_639-gpt-4-temp_0.75-k_1.dfy

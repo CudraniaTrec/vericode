@@ -1,0 +1,31 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_439-gpt-4-temp_0.75-k_5.dfy(23,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+23 | function method NumDigits(n: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_439-gpt-4-temp_0.75-k_5.dfy(31,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+31 | function method pow10(d: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_439-gpt-4-temp_0.75-k_5.dfy(39,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+39 | function method JoinIntegersSpec(arr: array<int>): int
+   | ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_439-gpt-4-temp_0.75-k_5.dfy(46,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+46 | function method JoinIntegersSpecAux(arr: array<int>, idx: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_439-gpt-4-temp_0.75-k_5.dfy(59,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+59 | function method TotalDigits(arr: array<int>, start: int): int
+   | ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_439-gpt-4-temp_0.75-k_5.dfy(71,0): Error: the phrase 'function method' is not allowed when using --function-syntax:4; to declare a compiled function, use just 'function'
+   |
+71 | function method JoinIntegersPartial(arr: array<int>, i: int): int
+   | ^^^^^^^^^^^^^^^
+
+6 parse errors detected in task_id_439-gpt-4-temp_0.75-k_5.dfy

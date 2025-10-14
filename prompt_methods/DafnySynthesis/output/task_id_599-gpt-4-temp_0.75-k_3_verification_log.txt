@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_599-gpt-4-temp_0.75-k_3.dfy(6,35): Error: type of right argument to / (nat) must agree with the result type (real)
+  |
+6 |     ensures average == sum as real / n
+  |                        ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_599-gpt-4-temp_0.75-k_3.dfy(9,27): Error: type of right argument to / (nat) must agree with the result type (real)
+  |
+9 |     average := sum as real / n;
+  |                ^^^^^^^^^^^^^^^
+
+2 resolution/type errors detected in task_id_599-gpt-4-temp_0.75-k_3.dfy

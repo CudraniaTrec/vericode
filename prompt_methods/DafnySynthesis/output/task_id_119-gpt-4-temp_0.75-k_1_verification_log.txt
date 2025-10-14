@@ -1,0 +1,16 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_119-gpt-4-temp_0.75-k_1.dfy(5,18): Error: invalid Ident
+  |
+5 |     ensures exists! i :: 0 <= i < a.Length && a[i] == single
+  |                   ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_119-gpt-4-temp_0.75-k_1.dfy(5,18): Error: invalid relational operator
+  |
+5 |     ensures exists! i :: 0 <= i < a.Length && a[i] == single
+  |                   ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_119-gpt-4-temp_0.75-k_1.dfy(5,22): Error: this symbol not expected in Dafny
+  |
+5 |     ensures exists! i :: 0 <= i < a.Length && a[i] == single
+  |                       ^
+
+3 parse errors detected in task_id_119-gpt-4-temp_0.75-k_1.dfy

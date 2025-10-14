@@ -1,0 +1,21 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_126-gpt-4-temp_0.75-k_3.dfy(2,95): Error: type set<int> does not have a member Sum
+  |
+2 |     ensures sum == (set d | 1 <= d <= if a < b then a else b && a % d == 0 && b % d == 0 :: d).Sum
+  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_126-gpt-4-temp_0.75-k_3.dfy(2,61): Error: first argument to && must be of type bool (instead got nat)
+  |
+2 |     ensures sum == (set d | 1 <= d <= if a < b then a else b && a % d == 0 && b % d == 0 :: d).Sum
+  |                                                            ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_126-gpt-4-temp_0.75-k_3.dfy(2,38): Error: the two branches of an if-then-else expression must have the same type (got nat and bool)
+  |
+2 |     ensures sum == (set d | 1 <= d <= if a < b then a else b && a % d == 0 && b % d == 0 :: d).Sum
+  |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_126-gpt-4-temp_0.75-k_3.dfy(9,79): Error: type set<?> does not have a member Sum
+  |
+9 |         invariant sum == (set x | 1 <= x < d && a % x == 0 && b % x == 0 :: x).Sum
+  |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+4 resolution/type errors detected in task_id_126-gpt-4-temp_0.75-k_3.dfy

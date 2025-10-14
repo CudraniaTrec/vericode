@@ -1,0 +1,16 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_732-gpt-4-temp_0.75-k_5.dfy(7,50): Error: closeparen expected
+  |
+7 |     invariant builder[..i] == (s[..i]).Map(lambda c: if c == ' ' || c == ',' || c == '.' then ':' else c)
+  |                                                   ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_732-gpt-4-temp_0.75-k_5.dfy(7,50): Error: invalid statement beginning here (is a 'label' keyword missing? or a 'const' or 'var' keyword?)
+  |
+7 |     invariant builder[..i] == (s[..i]).Map(lambda c: if c == ' ' || c == ',' || c == '.' then ':' else c)
+  |                                                   ^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_732-gpt-4-temp_0.75-k_5.dfy(7,89): Error: lbrace expected
+  |
+7 |     invariant builder[..i] == (s[..i]).Map(lambda c: if c == ' ' || c == ',' || c == '.' then ':' else c)
+  |                                                                                          ^
+
+3 parse errors detected in task_id_732-gpt-4-temp_0.75-k_5.dfy

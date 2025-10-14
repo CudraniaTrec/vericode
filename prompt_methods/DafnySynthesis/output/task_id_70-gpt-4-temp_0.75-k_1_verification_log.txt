@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_70-gpt-4-temp_0.75-k_1.dfy(3,55): Error: this symbol not expected in MethodSpec
+  |
+3 | method AllSequencesHaveEqualLength(seqs: seq<seq<int>>): bool
+  |                                                        ^
+
+1 parse errors detected in task_id_70-gpt-4-temp_0.75-k_1.dfy

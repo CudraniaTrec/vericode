@@ -1,0 +1,26 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_167-gpt-4-temp_0.75-k_4.dfy(4,20): Error: first argument to & must be of a bitvector type (instead got nat)
+  |
+4 |     ensures (result & (result - 1)) == 0 // result is a power of 2
+  |              ^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_167-gpt-4-temp_0.75-k_4.dfy(4,20): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+4 |     ensures (result & (result - 1)) == 0 // result is a power of 2
+  |              ^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_167-gpt-4-temp_0.75-k_4.dfy(17,20): Error: type of >> must be a bitvector type (instead got int)
+   |
+17 |         x := x | (x >> shift);
+   |                   ^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_167-gpt-4-temp_0.75-k_4.dfy(17,15): Error: first argument to | must be of a bitvector type (instead got int)
+   |
+17 |         x := x | (x >> shift);
+   |              ^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_167-gpt-4-temp_0.75-k_4.dfy(17,15): Error: second argument to | must be of a bitvector type (instead got int)
+   |
+17 |         x := x | (x >> shift);
+   |              ^^^^^^^^^^^^^^^^
+
+5 resolution/type errors detected in task_id_167-gpt-4-temp_0.75-k_4.dfy

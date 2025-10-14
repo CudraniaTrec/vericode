@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_566-gpt-4-temp_0.75-k_4.dfy(2,46): Error: closeparen expected
+  |
+2 |     ensures sum == (if n == 0 then 0 else sum i | i := n; i > 0; i := i / 10 :: i % 10)
+  |                                               ^
+
+1 parse errors detected in task_id_566-gpt-4-temp_0.75-k_4.dfy

@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_619-gpt-4-temp_0.75-k_4.dfy(16,36): Error: type char does not have a member ToString
+   |
+16 |             digits := digits + s[i].ToString();
+   |                                ^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_619-gpt-4-temp_0.75-k_4.dfy(18,42): Error: type char does not have a member ToString
+   |
+18 |             nonDigits := nonDigits + s[i].ToString();
+   |                                      ^^^^^^^^^^^^^
+
+2 resolution/type errors detected in task_id_619-gpt-4-temp_0.75-k_4.dfy

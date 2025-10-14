@@ -1,0 +1,16 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_799-gpt-4-temp_0.75-k_3.dfy(3,23): Error: Type or type parameter is not declared in this scope: uint (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+3 | method RotateLeft32(x: uint, d: uint) returns (res: uint)
+  |                        ^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_799-gpt-4-temp_0.75-k_3.dfy(3,32): Error: Type or type parameter is not declared in this scope: uint (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+3 | method RotateLeft32(x: uint, d: uint) returns (res: uint)
+  |                                 ^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_799-gpt-4-temp_0.75-k_3.dfy(3,52): Error: Type or type parameter is not declared in this scope: uint (did you forget to qualify a name or declare a module import 'opened'?) (note that names in outer modules are not visible in contained modules)
+  |
+3 | method RotateLeft32(x: uint, d: uint) returns (res: uint)
+  |                                                     ^^^^
+
+3 resolution/type errors detected in task_id_799-gpt-4-temp_0.75-k_3.dfy

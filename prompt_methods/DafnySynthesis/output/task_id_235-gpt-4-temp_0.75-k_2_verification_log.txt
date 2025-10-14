@@ -1,0 +1,21 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_235-gpt-4-temp_0.75-k_2.dfy(2,24): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+2 |     ensures result == n | EvenBitsMask()
+  |                       ^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_235-gpt-4-temp_0.75-k_2.dfy(2,24): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+2 |     ensures result == n | EvenBitsMask()
+  |                       ^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_235-gpt-4-temp_0.75-k_2.dfy(4,16): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+4 |     result := n | EvenBitsMask();
+  |               ^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_235-gpt-4-temp_0.75-k_2.dfy(4,16): Error: second argument to | must be of a bitvector type (instead got int)
+  |
+4 |     result := n | EvenBitsMask();
+  |               ^^^^^^^^^^^^^^^^^^
+
+4 resolution/type errors detected in task_id_235-gpt-4-temp_0.75-k_2.dfy

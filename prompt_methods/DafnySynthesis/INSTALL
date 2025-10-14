@@ -1,0 +1,21 @@
+To execute the prompt scripts and run verification and test the verified Dafny methods, 
+the following requirements need to be set as prerequisites:
+
+1) Dafny Installation
+  - Install Dafny (``version (4.0.0.50303)``) on your machine by following [this tutorial](https://github.com/dafny-lang/dafny/wiki/INSTALL).
+  - Make sure that ``dafny`` is accessible from the command line.
+  - To check Dafny installation , try ``dafny --version`` command in the command line.
+  - To review the verified methods, we recommed install VSCode with [Dany extension] (https://marketplace.visualstudio.com/items?itemName=dafny-lang.ide-vscode).
+
+2) Python Package Installation
+  - python ``version >== 3.10`` is required. To check python version try ``python --version``.
+  - Clone the repository and install required packages
+  ```
+    git clone https://github.com/Mondego/dafny-synthesis.git
+    cd dafny-synthesis
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+  ```
+3) Update `env.config` file
+  - Make sure to update the `env.config` file before executing the prompt scripts.

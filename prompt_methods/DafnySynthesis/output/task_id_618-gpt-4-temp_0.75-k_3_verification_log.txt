@@ -1,0 +1,17 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_618-gpt-4-temp_0.75-k_3.dfy(5,67): Error: possible division by zero
+  |
+5 |     ensures forall i :: 0 <= i < |a| ==> result[i] == a[i] as real / b[i] as real
+  |                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_618-gpt-4-temp_0.75-k_3.dfy(12,69): Error: possible division by zero
+   |
+12 |         invariant forall j :: 0 <= j < i ==> temp[j] == a[j] as real / b[j] as real
+   |                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_618-gpt-4-temp_0.75-k_3.dfy(14,37): Error: possible division by zero
+   |
+14 |         temp := temp + [a[i] as real / b[i] as real];
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 0 verified, 3 errors

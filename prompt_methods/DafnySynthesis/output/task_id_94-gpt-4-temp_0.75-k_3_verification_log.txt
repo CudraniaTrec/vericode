@@ -1,0 +1,21 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_94-gpt-4-temp_0.75-k_3.dfy(5,60): Error: unresolved identifier: j
+  |
+5 |     ensures forall i :: 0 <= i < a.Length ==> a[i][1] >= (a[j][1] | exists j :: 0 <= j < a.Length && firstValue == a[j][0])
+  |                                                             ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_94-gpt-4-temp_0.75-k_3.dfy(5,66): Error: second argument to | must be of a bitvector type (instead got bool)
+  |
+5 |     ensures forall i :: 0 <= i < a.Length ==> a[i][1] >= (a[j][1] | exists j :: 0 <= j < a.Length && firstValue == a[j][0])
+  |                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_94-gpt-4-temp_0.75-k_3.dfy(5,66): Error: first argument to | must be of a bitvector type (instead got int)
+  |
+5 |     ensures forall i :: 0 <= i < a.Length ==> a[i][1] >= (a[j][1] | exists j :: 0 <= j < a.Length && firstValue == a[j][0])
+  |                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_94-gpt-4-temp_0.75-k_3.dfy(5,66): Error: second argument to | must be of a bitvector type (instead got bool)
+  |
+5 |     ensures forall i :: 0 <= i < a.Length ==> a[i][1] >= (a[j][1] | exists j :: 0 <= j < a.Length && firstValue == a[j][0])
+  |                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+4 resolution/type errors detected in task_id_94-gpt-4-temp_0.75-k_3.dfy

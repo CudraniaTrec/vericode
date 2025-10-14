@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_436-gpt-4-temp_0.75-k_2.dfy(26,29): Error: openparen expected
+   |
+26 |     invariant count == (|seq j | 0 <= j < i && list1[j] < 0|)
+   |                              ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_436-gpt-4-temp_0.75-k_2.dfy(26,60): Error: invalid UnaryExpression
+   |
+26 |     invariant count == (|seq j | 0 <= j < i && list1[j] < 0|)
+   |                                                             ^
+
+2 parse errors detected in task_id_436-gpt-4-temp_0.75-k_2.dfy

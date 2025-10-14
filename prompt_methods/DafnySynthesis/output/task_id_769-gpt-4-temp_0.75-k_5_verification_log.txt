@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_769-gpt-4-temp_0.75-k_5.dfy(2,21): Error: type of - must be of a numeric type, bitvector type, ORDINAL, char, or a set-like or map-like type (instead got seq<int>)
+  |
+2 |   ensures diff == xs - ys
+  |                   ^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_769-gpt-4-temp_0.75-k_5.dfy(4,13): Error: type of - must be of a numeric type, bitvector type, ORDINAL, char, or a set-like or map-like type (instead got seq<int>)
+  |
+4 |   diff := xs - ys;
+  |           ^^^^^^^
+
+2 resolution/type errors detected in task_id_769-gpt-4-temp_0.75-k_5.dfy

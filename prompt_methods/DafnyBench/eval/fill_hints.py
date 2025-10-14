@@ -61,13 +61,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # Model name examples: gpt-4o, gpt-4-turbo, gpt-3.5-turbo, claude-3-opus-20240229, gemini-1.5-pro-preview-0409, etc.
-    if args.model.startswith("gpt"):
-        set_default_backend(OpenAI(args.model))
-    elif args.model.startswith("claude"):
+    if "gpt" in args.model:
+        set_default_backend(OpenAI(args.model, base_url="https://llm.xmcp.ltd/"))
+    elif "claude" in args.model:
         set_default_backend(Anthropic('claude-3-opus-20240229'))
-    elif args.model.startswith("gemini"):
+    elif "gemini" in args.model:
         set_default_backend(VertexAI(args.model))
-    elif args.model.startswith("codellama-7b"):
+    elif "codellama" in args.model:
         runtime = Runtime(model_path="codellama/CodeLlama-7b-Instruct-hf")
         set_default_backend(runtime)
     else:

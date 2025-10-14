@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_451-gpt-4-temp_0.75-k_5.dfy(3,17): Error: new can be applied only to class types (got seq<char>)
+  |
+3 |     var chars := new seq<char>();
+  |                  ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_451-gpt-4-temp_0.75-k_5.dfy(14,21): Error: type seq<?> does not have a member AsString
+   |
+14 |     res := chars[..].AsString();
+   |            ^^^^^^^^^^^^^^^^^^
+
+2 resolution/type errors detected in task_id_451-gpt-4-temp_0.75-k_5.dfy

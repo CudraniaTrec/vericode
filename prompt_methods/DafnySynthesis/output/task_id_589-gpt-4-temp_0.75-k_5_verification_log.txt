@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_589-gpt-4-temp_0.75-k_5.dfy(10,32): Error: lbracket expected
+   |
+10 |     var result := new seq<int>[];
+   |                                 ^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_589-gpt-4-temp_0.75-k_5.dfy(14,39): Error: rbracket expected
+   |
+14 |         invariant result == [j * j | j := first .. i - 1]
+   |                                        ^
+
+2 parse errors detected in task_id_589-gpt-4-temp_0.75-k_5.dfy

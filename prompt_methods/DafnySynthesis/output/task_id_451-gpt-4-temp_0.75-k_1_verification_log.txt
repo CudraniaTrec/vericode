@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_451-gpt-4-temp_0.75-k_1.dfy(6,27): Error: lbracket expected
+  |
+6 |   var sb := new seq<char>[];
+  |                            ^
+
+1 parse errors detected in task_id_451-gpt-4-temp_0.75-k_1.dfy

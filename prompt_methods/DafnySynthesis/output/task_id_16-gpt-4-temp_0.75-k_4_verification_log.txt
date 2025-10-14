@@ -1,0 +1,46 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(7,14): Error: type seq<char> does not have a member Length
+  |
+7 |   while i < s.Length - 2 // At least 3 chars needed for a match
+  |             ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(8,26): Error: type seq<char> does not have a member Length
+  |
+8 |     invariant 0 <= i <= s.Length
+  |                         ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(17,18): Error: type seq<char> does not have a member Length
+   |
+17 |       while i < s.Length && IsLowercase(s[i]) 
+   |                 ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(18,20): Error: type seq<char> does not have a member Length
+   |
+18 |         decreases s.Length - i
+   |                   ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(24,15): Error: type seq<char> does not have a member Length
+   |
+24 |       if i < s.Length && s[i] == '_' {
+   |              ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(29,17): Error: type seq<char> does not have a member Length
+   |
+29 |         if i < s.Length && IsLowercase(s[i]) {
+   |                ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(30,22): Error: type seq<char> does not have a member Length
+   |
+30 |           while i < s.Length && IsLowercase(s[i]) 
+   |                     ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(31,24): Error: type seq<char> does not have a member Length
+   |
+31 |             decreases s.Length - i
+   |                       ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_16-gpt-4-temp_0.75-k_4.dfy(56,14): Error: type seq<char> does not have a member Length
+   |
+56 |     j < k < s.Length - 1 &&
+   |             ^^^^^^^^
+
+9 resolution/type errors detected in task_id_16-gpt-4-temp_0.75-k_4.dfy

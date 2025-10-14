@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_477-gpt-4-temp_0.75-k_1.dfy(8,85): Error: invalid ParensExpression
+  |
+8 |         invariant forall j :: 0 <= j < i ==> chars[j] == if 'A' <= s[j] <= 'Z' then (char)(s[j] as int + 32) else s[j]
+  |                                                                                      ^
+
+1 parse errors detected in task_id_477-gpt-4-temp_0.75-k_1.dfy

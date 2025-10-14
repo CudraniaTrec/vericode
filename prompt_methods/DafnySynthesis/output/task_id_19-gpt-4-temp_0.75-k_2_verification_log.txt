@@ -1,0 +1,8 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_19-gpt-4-temp_0.75-k_2.dfy(11,14): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+11 |     invariant forall x, y :: 0 <= x < y < i ==> a[x] != a[y]
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 0 verified, 1 error

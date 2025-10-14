@@ -1,0 +1,23 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_622-gpt-4-temp_0.75-k_2.dfy(16,28): Error: this invariant could not be proved to be maintained by the loop
+ Related message: loop invariant violation
+   |
+16 |         invariant 0 <= left <= right <= n
+   |                        ^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_622-gpt-4-temp_0.75-k_2.dfy(30,12): Error: a postcondition could not be proved on this return path
+   |
+30 |             return;
+   |             ^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_622-gpt-4-temp_0.75-k_2.dfy(8,19): Related location: this is the postcondition that could not be proved
+  |
+8 |     ensures median == MedianOfSortedSequences(A, B)
+  |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_622-gpt-4-temp_0.75-k_2.dfy(48,11): Error: index out of range
+   |
+48 |     (merged[|merged|/2 - 1] as real + merged[|merged|/2] as real) / 2.0
+   |      ^^^^^^^^^^^^^^^^^^^^^^
+
+
+Dafny program verifier finished with 2 verified, 3 errors

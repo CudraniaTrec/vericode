@@ -1,0 +1,101 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(3,52): Error: first argument to & must be of a bitvector type (instead got nat)
+  |
+3 |     ensures forall k: nat :: k > res ==> k > n || k & (k - 1) != 0
+  |                                                   ^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(3,52): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+3 |     ensures forall k: nat :: k > res ==> k > n || k & (k - 1) != 0
+  |                                                   ^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(4,16): Error: first argument to & must be of a bitvector type (instead got nat)
+  |
+4 |     ensures res & (res - 1) == 0 // res is a power of 2
+  |             ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(4,16): Error: second argument to & must be of a bitvector type (instead got int)
+  |
+4 |     ensures res & (res - 1) == 0 // res is a power of 2
+  |             ^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(13,11): Error: first argument to | must be of a bitvector type (instead got nat)
+   |
+13 |     x := x | (x >> 1);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(14,11): Error: first argument to | must be of a bitvector type (instead got nat)
+   |
+14 |     x := x | (x >> 2);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(15,11): Error: first argument to | must be of a bitvector type (instead got nat)
+   |
+15 |     x := x | (x >> 4);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(16,11): Error: first argument to | must be of a bitvector type (instead got nat)
+   |
+16 |     x := x | (x >> 8);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(17,11): Error: first argument to | must be of a bitvector type (instead got nat)
+   |
+17 |     x := x | (x >> 16);
+   |          ^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(19,18): Error: type of >> must be a bitvector type (instead got nat)
+   |
+19 |     res := x - (x >> 1);
+   |                 ^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(13,16): Error: type of >> must be a bitvector type (instead got nat)
+   |
+13 |     x := x | (x >> 1);
+   |               ^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(13,11): Error: second argument to | must be of a bitvector type (instead got nat)
+   |
+13 |     x := x | (x >> 1);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(14,16): Error: type of >> must be a bitvector type (instead got nat)
+   |
+14 |     x := x | (x >> 2);
+   |               ^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(14,11): Error: second argument to | must be of a bitvector type (instead got nat)
+   |
+14 |     x := x | (x >> 2);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(15,16): Error: type of >> must be a bitvector type (instead got nat)
+   |
+15 |     x := x | (x >> 4);
+   |               ^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(15,11): Error: second argument to | must be of a bitvector type (instead got nat)
+   |
+15 |     x := x | (x >> 4);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(16,16): Error: type of >> must be a bitvector type (instead got nat)
+   |
+16 |     x := x | (x >> 8);
+   |               ^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(16,11): Error: second argument to | must be of a bitvector type (instead got nat)
+   |
+16 |     x := x | (x >> 8);
+   |          ^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(17,16): Error: type of >> must be a bitvector type (instead got nat)
+   |
+17 |     x := x | (x >> 16);
+   |               ^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_388-gpt-4-temp_0.75-k_5.dfy(17,11): Error: second argument to | must be of a bitvector type (instead got nat)
+   |
+17 |     x := x | (x >> 16);
+   |          ^^^^^^^^^^^^^
+
+20 resolution/type errors detected in task_id_388-gpt-4-temp_0.75-k_5.dfy

@@ -1,0 +1,21 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_267-gpt-4-temp_0.75-k_2.dfy(3,75): Error: type bool does not have a member FoldLeft
+  |
+3 |     ensures sum == (forall i :: 1 <= i <= n ==> (2 * i - 1) * (2 * i - 1)).FoldLeft(0, (acc, x) => acc + x)
+  |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_267-gpt-4-temp_0.75-k_2.dfy(3,44): Error: second argument to ==> must be of type bool (instead got int)
+  |
+3 |     ensures sum == (forall i :: 1 <= i <= n ==> (2 * i - 1) * (2 * i - 1)).FoldLeft(0, (acc, x) => acc + x)
+  |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_267-gpt-4-temp_0.75-k_2.dfy(9,80): Error: type bool does not have a member FoldLeft
+  |
+9 |         invariant sum == (forall j :: 1 <= j < i ==> (2 * j - 1) * (2 * j - 1)).FoldLeft(0, (acc, x) => acc + x)
+  |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_267-gpt-4-temp_0.75-k_2.dfy(9,49): Error: second argument to ==> must be of type bool (instead got int)
+  |
+9 |         invariant sum == (forall j :: 1 <= j < i ==> (2 * j - 1) * (2 * j - 1)).FoldLeft(0, (acc, x) => acc + x)
+  |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+4 resolution/type errors detected in task_id_267-gpt-4-temp_0.75-k_2.dfy

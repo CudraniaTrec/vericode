@@ -1,0 +1,21 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_748-gpt-4-temp_0.75-k_2.dfy(3,15): Error: type seq<char> does not have a member Length
+  |
+3 |     var n := s.Length;
+  |              ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_748-gpt-4-temp_0.75-k_2.dfy(8,20): Error: type seq<char> does not have a member Length
+  |
+8 |         invariant r.Length <= i + r.Length - r.Length
+  |                   ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_748-gpt-4-temp_0.75-k_2.dfy(8,36): Error: type seq<char> does not have a member Length
+  |
+8 |         invariant r.Length <= i + r.Length - r.Length
+  |                                   ^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_748-gpt-4-temp_0.75-k_2.dfy(8,47): Error: type seq<char> does not have a member Length
+  |
+8 |         invariant r.Length <= i + r.Length - r.Length
+  |                                              ^^^^^^^^
+
+4 resolution/type errors detected in task_id_748-gpt-4-temp_0.75-k_2.dfy

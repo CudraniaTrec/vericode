@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_772-gpt-4-temp_0.75-k_2.dfy(10,45): Error: rbracket expected
+   |
+10 |     invariant filteredWords == [words[j] | j :: 0 <= j < i && |words[j]| != k]
+   |                                              ^
+
+1 parse errors detected in task_id_772-gpt-4-temp_0.75-k_2.dfy

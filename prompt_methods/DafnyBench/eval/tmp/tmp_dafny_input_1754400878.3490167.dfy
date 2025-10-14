@@ -1,0 +1,199 @@
+// RUN: %dafny /compile:3 /env:0 /dprint:- "%s" > "%t"
+// RUN: %diff "%s.expect" "%t"
+
+method Main() {
+  var m := new M0.MyClass.Init(20);
+  print m.a, ", ", m.b, ", ", m.c, "\n";
+  var r0 := new Regression.A.Make0();
+  var r1 := new Regression.A.Make1();
+  print r0.b, ", ", r1.b, "\n";
+}
+
+module M0 {
+  class MyClass {
+    var a: nat
+    const b := 17
+    var c: real
+
+    constructor Init(x: nat)
+    {
+      this.a := x;
+      c := 3.14;
+      new;
+      a := a + b;
+    }
+
+    constructor (z: real)
+      ensures c <= 2.0 * z
+    {
+      a, c := 50, 2.0 * z;
+      new;
+    }
+
+    constructor Make()
+      ensures 10 <= a
+    {
+      new;
+      a := a + b;
+    }
+
+    constructor Create()
+      ensures 30 <= a
+    {
+      new;
+      a := a + 2*b;
+    }
+  }
+}
+
+module M1 refines M0 {
+  class MyClass ...
+  {
+    const d := 'D';
+    var e: char;
+
+    constructor Init(x: nat)
+      ensures a == x + b
+      ensures c == 3.14
+      ensures b == 17
+      ensures a >= 17
+      ensures c >= 0.0
+      ensures e == 'x'
+      ensures d == 'D'
+    {
+      e := 'e';
+      new;
+      e := 'x';
+      // base Init(x) body is executed due to refinement
+    }
+
+    constructor (z: real)
+      ensures c <= 2.0 * z
+      ensures a == 50
+      ensures c == 2.0 * z
+      ensures b == 17
+      ensures a >= 10
+      ensures e == 'y'
+      ensures d == 'D'
+    {
+      e := 'y';
+      new;
+      // base (z) body is executed due to refinement
+    }
+
+    constructor Make()
+      ensures 10 <= a
+      ensures a == b
+      ensures b == 17
+      ensures e == 'z'
+      ensures d == 'D'
+    {
+      new;
+      e := 'z';
+      // base Make() body is executed due to refinement
+    }
+
+    constructor Create()
+      ensures 30 <= a
+      ensures a == 2*b
+      ensures b == 17
+      ensures e == 'w'
+      ensures d == 'D'
+    {
+      new;
+      e := 'w';
+      // base Create() body is executed due to refinement
+    }
+  }
+}
+
+module TypeOfThis {
+  class LinkedList<T(0)> {
+    ghost var Repr: set<LinkedList<T>>
+    ghost var Rapr: set<LinkedList?<T>>
+    ghost var S: set<object>
+    ghost var T: set<object?>
+
+    constructor Init()
+    {
+      Repr := {this};  // regression test: this should pass, but once upon a time didn't
+    }
+
+    constructor Init'()
+    {
+      Rapr := {this};
+    }
+
+    constructor Create()
+    {
+      S := {this};  // regression test: this should pass, but once upon a time didn't
+    }
+
+    constructor Create'()
+    {
+      T := {this};
+    }
+
+    constructor Two()
+    {
+      new;
+      var ll: LinkedList? := this;
+      var o: object? := this;
+      if
+      case true =>  T := {o};
+      case true =>  S := {o};
+      case true =>  Repr := {ll};
+      case true =>  Rapr := {ll};
+      case true =>  S := {ll};
+      case true =>  T := {ll};
+    }
+
+    method Mutate()
+      modifies this
+    {
+      Repr := {this};
+      Rapr := {this};
+      S := {this};
+      T := {this};
+    }
+  }
+}
+
+module Regression {
+  class A {
+    var b: bool
+    var y: int
+
+    constructor Make0()
+      ensures b == false  // regression test: this didn't used to be provable :O
+    {
+      b := false;
+    }
+    constructor Make1()
+      ensures b == true
+    {
+      b := true;
+    }
+    constructor Make2()
+    {
+      b := false;
+      new;  // this sets "alloc" to "true", and the verifier previously was not
+            // able to distinguish the internal field "alloc" from other boolean
+            // fields
+    }
+    constructor Make3()
+      ensures b == false && y == 65
+    {
+      b := false;
+      y := 65;
+      new;
+    }
+    constructor Make4(bb: bool, yy: int)
+      ensures b == bb && y == yy
+    {
+      b, y := bb, yy;
+    }
+  }
+}
+
+function abs(a: real) : real {if a>0.0 then a else -a}

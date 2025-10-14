@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_426-gpt-4-temp_0.75-k_3.dfy(2,25): Error: rbracket expected
+  |
+2 |   ensures odds == [x | x := nums, x % 2 != 0]
+  |                          ^
+
+1 parse errors detected in task_id_426-gpt-4-temp_0.75-k_3.dfy

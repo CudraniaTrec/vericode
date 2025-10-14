@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_271-gpt-4-temp_0.75-k_5.dfy(3,71): Error: invalid UnaryExpression
+  |
+3 |     ensures sum == (if n == 0 then 0 else (var total := 0; var i := 1; while i <= n invariant 1 <= i <= n + 1 invariant total == (if i == 1 then 0 else total); i := i + 1 { total := total + (2 * i - 2) * (2 * i - 2) * (2 * i - 2) * (2 * i - 2) * (2 * i - 2); }; total))
+  |                                                                        ^
+
+1 parse errors detected in task_id_271-gpt-4-temp_0.75-k_5.dfy

@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_445-gpt-4-temp_0.75-k_1.dfy(12,41): Error: rbracket expected
+   |
+12 |     invariant temp == [s1[j] * s2[j] | j := 0 .. i]
+   |                                          ^
+
+1 parse errors detected in task_id_445-gpt-4-temp_0.75-k_1.dfy

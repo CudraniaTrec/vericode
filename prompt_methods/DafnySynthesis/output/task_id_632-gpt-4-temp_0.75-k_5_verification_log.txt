@@ -1,0 +1,11 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_632-gpt-4-temp_0.75-k_5.dfy(5,72): Error: type seq<?> does not have a member Filter
+  |
+5 |     ensures forall i :: 0 <= i < a.Length - (|old(a[..])| - |old(a[..]).Filter(x => x == 0)|) ==> a[i] != 0
+  |                                                              ^^^^^^^^^^^^^^^^^
+
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_632-gpt-4-temp_0.75-k_5.dfy(6,63): Error: type seq<?> does not have a member Filter
+  |
+6 |     ensures forall i :: a.Length - (|old(a[..])| - |old(a[..]).Filter(x => x == 0)|) <= i < a.Length ==> a[i] == 0
+  |                                                     ^^^^^^^^^^^^^^^^^
+
+2 resolution/type errors detected in task_id_632-gpt-4-temp_0.75-k_5.dfy

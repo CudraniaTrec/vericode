@@ -1,0 +1,6 @@
+/home/hzc/data4/llm_related/dafny-synthesis/output/task_id_79-gpt-4-temp_0.75-k_4.dfy(5,18): Error: type seq<char> does not have a member Length
+  |
+5 |     isOdd := word.Length % 2 == 1;
+  |              ^^^^^^^^^^^
+
+1 resolution/type errors detected in task_id_79-gpt-4-temp_0.75-k_4.dfy
