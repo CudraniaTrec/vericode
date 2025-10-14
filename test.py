@@ -76,10 +76,10 @@ def verify_one(data, base_path, auto_delete=False):
     # 调用 Dafny 验证
     try:
         result = subprocess.run(
-            ["dafny", "verify", "--mv", "--cores:4", output_path],
+            ["dafny", "verify", output_path],
             capture_output=True,
             text=True,
-            timeout=60
+            timeout=120
         )
         if result.returncode != 0:
             if auto_delete:
@@ -104,7 +104,7 @@ def dump_files(name, datas, max_workers=8, auto_delete=False):
             name_, ok, msg, data_passed = f.result()
             if not ok:
                 error_files.append(name_)
-                print(f"[❌] {name_} failed: {msg[:100]}")
+                print(f"[❌] {name_} failed: {msg[:200]}")
             else:
                 passed_datas.append(data_passed)
 
@@ -120,7 +120,7 @@ def dump_files(name, datas, max_workers=8, auto_delete=False):
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
     print(f"✅ 验证通过的样本已保存到 {jsonl_path}")
         
-py2dfy_tests = unify_json_py2dfy(read_parquet(path1))[:32]
-comp_tests = unify_json_comp(read_parquet(path2))[:32]
-dump_files("py2dfy_test", py2dfy_tests, max_workers=16)
-dump_files("comp_test", comp_tests, max_workers=16)
+py2dfy_tests = unify_json_py2dfy(read_parquet(path1))[:]
+comp_tests = unify_json_comp(read_parquet(path2))[:]
+dump_files("py2dfy_test", py2dfy_tests, max_workers=96)
+dump_files("comp_test", comp_tests, max_workers=96)

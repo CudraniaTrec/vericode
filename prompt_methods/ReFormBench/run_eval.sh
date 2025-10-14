@@ -5,7 +5,7 @@ export DAFNY_PATH="/usr/bin/dafny"
 export OPENAI_API_KEY="sk-r2cq5f6w3LDHYw2VqAp5ZA"
 export PATH=$DAFNYBENCH_ROOT:$PATH
 export TEST_SET_DIR=$DAFNYBENCH_ROOT/DafnyBench/dataset/hints_removed
-export model_to_eval='yunwu/gpt-5-2025-08-07'
+export model_to_eval='yunwu/gpt-4.1-2025-04-14'
 
 sleep 0.1
 
@@ -13,7 +13,6 @@ sleep 0.1
 
 mkdir -p ../results/results_summary
 if [ ! -f "../results/results_summary/${model_to_eval}_results.csv" ]; then
-    echo "creating results file..."
     echo "test_ID,test_file,success_on_attempt_#" > "../results/results_summary/${model_to_eval}_results.csv"
 fi
 
