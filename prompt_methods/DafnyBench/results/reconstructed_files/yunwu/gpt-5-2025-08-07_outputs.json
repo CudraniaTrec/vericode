@@ -3,5 +3,45 @@
         "test_ID": "000",
         "test_file": "630-dafny_tmp_tmpz2kokaiq_Solution_no_hints.dfy",
         "llm_output": ""
+    },
+    "179": {
+        "test_ID": "179",
+        "test_file": "Dafny_Verify_tmp_tmphq7j0row_dataset_C_convert_examples_11_no_hints.dfy",
+        "llm_output": "method main(x :int) returns (j :int, i :int)\nrequires x > 0\nensures j == 2 * x\n{\n    i := 0;\n    j := 0;\n\n    assert i == 0;\n    assert j == 0;\n    assert j == 2 * i;\n    assert x > 0;\n\n    while i < x\n        invariant 0 <= i\n        invariant i <= x\n        invariant j == 2 * i\n        decreases x - i\n    {\n        j := j + 2;\n        i := i + 1;\n\n        assert j == 2 * i;\n        assert i <= x;\n    }\n\n    assert i >= x;\n    assert i <= x;\n    assert i == x;\n    assert j == 2 * x;\n}"
+    },
+    "400": {
+        "test_ID": "400",
+        "test_file": "cs245-verification_tmp_tmp0h_nxhqp_power_no_hints.dfy",
+        "llm_output": ""
+    },
+    "114": {
+        "test_ID": "114",
+        "test_file": "Dafny-programs_tmp_tmpnso9eu7u_Algorithms + sorting_bubble-sort_no_hints.dfy",
+        "llm_output": ""
+    },
+    "569": {
+        "test_ID": "569",
+        "test_file": "dafny-synthesis_task_id_472_no_hints.dfy",
+        "llm_output": ""
+    },
+    "156": {
+        "test_ID": "156",
+        "test_file": "Dafny_Verify_tmp_tmphq7j0row_Fine_Tune_Examples_50_examples_41_no_hints.dfy",
+        "llm_output": ""
+    },
+    "300": {
+        "test_ID": "300",
+        "test_file": "Program-Verification-Dataset_tmp_tmpgbdrlnu__Dafny_basic examples_add_by_one_details_no_hints.dfy",
+        "llm_output": ""
+    },
+    "133": {
+        "test_ID": "133",
+        "test_file": "Dafny_Learning_Experience_tmp_tmpuxvcet_u_week1_7_week5_ComputePower_no_hints.dfy",
+        "llm_output": ""
+    },
+    "575": {
+        "test_ID": "575",
+        "test_file": "dafny-synthesis_task_id_557_no_hints.dfy",
+        "llm_output": ""
     }
 }

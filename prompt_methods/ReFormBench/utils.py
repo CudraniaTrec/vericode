@@ -7,6 +7,7 @@ import pandas as pd
 
 helper_functions = "\nfunction abs(a: real) : real {if a>0.0 then a else -a}\n"
 
+# extract functions
 
 def is_doc(line):
     if line.startswith("/*") or line.startswith("//"):
@@ -65,10 +66,10 @@ def extract_body(lines, oneline=True):
             body += line + "\n"
     return body
 
+# dafny run functions
 
 def dump_tmp_file(program):
     import time
-
     timestamp = time.time()
     tmp_dir = "tmp"
     os.makedirs(tmp_dir, exist_ok=True)
@@ -108,11 +109,10 @@ def no_compile_error(msg: str):
 
 def run_dafny(program, dafny_path):
     import subprocess
-
     tmp_file = dump_tmp_file(program + helper_functions)
     try:
         s = subprocess.run(
-            f"{dafny_path} /compile:0  /deprecation:0  {tmp_file}",
+            f"{dafny_path} verify {tmp_file}",
             shell=True,
             capture_output=True,
             timeout=60,
@@ -154,6 +154,7 @@ def check_no_cheating(body, body_reconstructed):
     no_avoid_verify = not '{:verify false}' in body_reconstructed and not 'assume false' in body_reconstructed
     return spec_preserved, no_avoid_verify
 
+# save functions
 
 def save_result_stats(model, test_file, success_attempt):
     results_file = f"results/results_summary/{model}_results.csv"

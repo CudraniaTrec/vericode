@@ -24,13 +24,14 @@ def read_parquet(path):
 def unify_json_comp(json_data):
     unified = []
     for item in json_data:
+        id = int(item.get("self_id"))//10000
         row = {
             "instruction": instruction,
             "system": system_prompt,
             "input": item.get("org_input"),
             "output": item.get("gt_output"),
-            "name": f"comp_{item.get('self_id')}",
-            "id": item.get("self_id"),
+            "name": f"comp_{id}",
+            "id": id,
         }
         unified.append(row)
     return unified
@@ -120,7 +121,7 @@ def dump_files(name, datas, max_workers=8, auto_delete=False):
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
     print(f"✅ 验证通过的样本已保存到 {jsonl_path}")
         
-py2dfy_tests = unify_json_py2dfy(read_parquet(path1))[:]
+# py2dfy_tests = unify_json_py2dfy(read_parquet(path1))[:]
 comp_tests = unify_json_comp(read_parquet(path2))[:]
-dump_files("py2dfy_test", py2dfy_tests, max_workers=96)
+# dump_files("py2dfy_test", py2dfy_tests, max_workers=96)
 dump_files("comp_test", comp_tests, max_workers=96)

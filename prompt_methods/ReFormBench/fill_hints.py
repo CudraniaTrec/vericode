@@ -1,4 +1,4 @@
-import argparse
+import argparse, os
 import litellm
 from litellm import completion
 import json
@@ -46,7 +46,7 @@ def fill_hints_for_item(model, item, dafny_path, feedback_turn):
             spec_preserved, no_avoid_verify = check_no_cheating(body, body_with_hints)
             if is_dafny_verified(str(out)) and spec_preserved and no_avoid_verify:
                 save_result(model, item_name, counter, body_with_hints)
-                return {"name": item_name, "success_tries": counter-1}
+                return {"name": item_name, "success_tries": counter}
             
             feedback_message = ""
             if not is_dafny_verified(str(out)):
@@ -77,33 +77,26 @@ def process_all_items(model, test_items, feedback_turn, dafny_path="dafny", max_
                 results.append(result)
             except Exception:
                 item = future_to_item[future]
-                item_name = item.get("name")
-                results.append({"name": item_name, "success_tries": -1})
+                results.append({"name": item.get("name"), "success_tries": -1})
     return results
-
-def setup_litellm(model_name):
-    """设置LiteLLM配置"""
-    if "xmcp" in model_name:
-        litellm.api_base = "https://llm.xmcp.ltd/"
-        return model_name.replace("https://llm.xmcp.ltd/", "").split("/")[-1]
-    return model_name
 
 if __name__ == "__main__":
     comp_test_path = "../../dataset/comp_test_files/passed.jsonl"
     py2dfy_test_path = "../../dataset/py2dfy_test_files/passed.jsonl"
+    litellm.api_key = "sk-hvXP-KDUii4LsnggeSZE7g"
+    litellm.api_base = "https://llm.xmcp.ltd/"
 
     parser = argparse.ArgumentParser(description="批量重构Dafny程序的hints")
-    parser.add_argument("--model", type=str, required=True)
+    parser.add_argument("--model", type=str, default="yunwu/gpt-4.1-2025-04-14")
     parser.add_argument("--test_path", type=str, default=comp_test_path)
     parser.add_argument("--feedback_turn", type=int, default=3)
     
     args = parser.parse_args()
-    model_name = setup_litellm(args.model)
+    model_name = args.model
     test_items = load_test_data(args.test_path)
-    results = process_all_items(model_name, test_items, args.feedback_turn)
+    results = process_all_items(model_name, test_items, args.feedback_turn, max_workers=8)
 
     total = len(results)
     successful = sum(1 for r in results if r.get("success_tries") >= 0)
-
     print(f"Total: {total}, Success: {successful}, Failed: {total - successful}")
     print(f"Success Rate: {successful/total*100:.1f}%")

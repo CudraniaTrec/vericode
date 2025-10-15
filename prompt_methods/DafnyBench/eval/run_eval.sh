@@ -5,7 +5,7 @@ export DAFNY_PATH="/usr/bin/dafny"
 export OPENAI_API_KEY="sk-r2cq5f6w3LDHYw2VqAp5ZA"
 export PATH=$DAFNYBENCH_ROOT:$PATH
 export TEST_SET_DIR=$DAFNYBENCH_ROOT/DafnyBench/dataset/hints_removed
-export model_to_eval='yunwu/gpt-5-2025-08-07'
+export model_to_eval='aws/claude-4-sonnet-20250514'
 
 sleep 0.1
 
@@ -35,6 +35,7 @@ do
             --feedback_turn 3 \
             --dafny_path "$DAFNY_PATH"  # Example Dafny executable path: "/opt/homebrew/bin/Dafny"
     fi
+    break
 done
 
 # Calculate success rate

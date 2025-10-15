@@ -28,7 +28,9 @@ def fill_hints(s, model, test_file, dafny_path, feedback_turn):
     # Give LLM multiple tries to reconstruct hints (& take into account Dafny feedback)
     for _ in range(feedback_turn):
         with s.copy() as tmp:
+            print("Attempt", counter)
             tmp += assistant(gen("new_body_with_hints", max_tokens=4096, temperature=0.3))
+            print(tmp["new_body_with_hints"])
             body_with_hints = extract_code_from_llm_output(tmp["new_body_with_hints"])
         s += assistant(body_with_hints)
         out, _ = run_dafny(body_with_hints, dafny_path)
@@ -61,7 +63,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # Model name examples: gpt-4o, gpt-4-turbo, gpt-3.5-turbo, claude-3-opus-20240229, gemini-1.5-pro-preview-0409, etc.
-    if "gpt" in args.model:
+    if ("aws" in args.model) or ("yunwu" in args.model) or ("ds" in args.model):
         set_default_backend(OpenAI(args.model, base_url="https://llm.xmcp.ltd/"))
     elif "claude" in args.model:
         set_default_backend(Anthropic('claude-3-opus-20240229'))

@@ -157,15 +157,22 @@ def check_no_cheating(body, body_reconstructed):
 
 def save_result_stats(model, test_file, success_attempt):
     results_file = f"../results/results_summary/{model}_results.csv"
+    os.makedirs(os.path.dirname(results_file), exist_ok=True)
     df = pd.read_csv(results_file)
-    new_test_result = {"test_ID": get_test_ID(test_file), "test_file": test_file, "success_on_attempt_#": success_attempt}
-    df = df._append(new_test_result, ignore_index=True)
+    test_id = get_test_ID(test_file)
+    if test_file in df['test_file'].values:
+        df.loc[df['test_file'] == test_file, ['test_ID', 'success_on_attempt_#']] = [test_id, success_attempt]
+    else:
+        new_test_result = {"test_ID": test_id, "test_file": test_file, "success_on_attempt_#": success_attempt}
+        df = df._append(new_test_result, ignore_index=True)
+    
     df["test_ID"] = df["test_ID"].apply(lambda x: f"{int(x):03d}")
     df.to_csv(results_file, index=False)
 
 
 def save_reconstructed_file(model, test_file, body_reconstructed):
     output_file = f"../results/reconstructed_files/{model}_outputs.json"
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
     test_ID = get_test_ID(test_file)
     new_test_result = {"test_ID": test_ID, "test_file": test_file, "llm_output": body_reconstructed}
 
@@ -181,11 +188,7 @@ def save_reconstructed_file(model, test_file, body_reconstructed):
     else:
         data = {}
     
-    with open(output_file, "r") as f:
-        data = json.load(f)
-    
     data[test_ID] = new_test_result
-
     with open(output_file, "w") as f:
         json.dump(data, f, indent=4)
 
