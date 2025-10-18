@@ -2,6 +2,7 @@ import argparse, os
 import litellm
 from litellm import completion
 import json
+from tqdm import tqdm
 from utils import (
     extract_code_from_llm_output,
     run_dafny,
@@ -32,14 +33,19 @@ def fill_hints_for_item(model, item, dafny_path, feedback_turn):
 
     body_with_hints = ""
     counter = 1
+    api_key = os.getenv("OPENAI_API_KEY")
+    api_base = os.getenv("OPENAI_API_BASE")
     for _ in range(feedback_turn):
         try:
             response = completion(
-                model=model,
+                model=f"openai/{model}",
                 messages=messages,
+                api_key=api_key,
+                api_base=api_base,
                 max_tokens=4096,
             )
             body_with_hints = extract_code_from_llm_output(response.choices[0].message.content)
+            # print(f"Item: {item_name}, Attempt: {counter}\n{body_with_hints}\n{'='*40}")
             messages.append({"role": "assistant", "content": body_with_hints})
             
             out, _ = run_dafny(body_with_hints, dafny_path)
@@ -53,7 +59,7 @@ def fill_hints_for_item(model, item, dafny_path, feedback_turn):
                 feedback_message += "This answer got Dafny verification error:\n" + str(out) + "\n"
                 feedback_message += "Please try again by taking the Dafny feedback.\n"
             if not spec_preserved:
-                feedback_message += "Please keep the preconditions and postconditions the same as the original program, or you fail the test.\n"
+                feedback_message += "Please keep the invariants the same as the original program, or you fail the test.\n"
             if not no_avoid_verify:
                 feedback_message += "Please don't use {:verify false} or assume false."
             messages.append({"role": "user", "content": feedback_message})
@@ -71,7 +77,7 @@ def process_all_items(model, test_items, feedback_turn, dafny_path="dafny", max_
             executor.submit(fill_hints_for_item, model, item, dafny_path, feedback_turn): item 
             for item in test_items
         }
-        for future in as_completed(future_to_item):
+        for future in tqdm(as_completed(future_to_item), total=len(future_to_item)):
             try:
                 result = future.result()
                 results.append(result)
@@ -83,8 +89,8 @@ def process_all_items(model, test_items, feedback_turn, dafny_path="dafny", max_
 if __name__ == "__main__":
     comp_test_path = "../../dataset/comp_test_files/passed.jsonl"
     py2dfy_test_path = "../../dataset/py2dfy_test_files/passed.jsonl"
-    litellm.api_key = "sk-hvXP-KDUii4LsnggeSZE7g"
-    litellm.api_base = "https://llm.xmcp.ltd/"
+    os.environ["OPENAI_API_KEY"] = "sk-hvXP-KDUii4LsnggeSZE7g"
+    os.environ["OPENAI_API_BASE"] = "https://llm.xmcp.ltd/"
 
     parser = argparse.ArgumentParser(description="批量重构Dafny程序的hints")
     parser.add_argument("--model", type=str, default="yunwu/gpt-4.1-2025-04-14")

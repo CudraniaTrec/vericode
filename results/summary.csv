@@ -1,5 +1,5 @@
 Methods,DafnyBench,DafnyComp,Py2Dfy
-gpt-4.1,62.65%,,
-deepseek-chat,68.28%,,
-codellama-7b,28.00%,,
+gpt-4.1,62.65%,1.8%,
+deepseek-chat,68.28%,0.9%,
+codellama-7b,28.00%,0.0%,
 ,,,

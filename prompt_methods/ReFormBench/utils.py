@@ -115,7 +115,7 @@ def run_dafny(program, dafny_path):
             f"{dafny_path} verify {tmp_file}",
             shell=True,
             capture_output=True,
-            timeout=60,
+            timeout=120,
         )
     except Exception as e:
         return "", str(e)
@@ -136,7 +136,7 @@ def check_no_cheating(body, body_reconstructed):
         if line.strip().startswith("/*"):
             in_doc = not in_doc
         is_comment = line.strip().startswith("//")
-        if ("requires" in line or "ensures" in line) and (not in_doc) and (not is_comment):
+        if ("invariant" in line) and (not in_doc) and (not is_comment):
             spec_orig.append(line.strip().replace(" ", ""))
         if line.strip().endswith("*/"):
             in_doc = not in_doc
@@ -145,7 +145,7 @@ def check_no_cheating(body, body_reconstructed):
         if line_hints.strip().startswith("/*"):
             in_doc_hints = not in_doc_hints
         is_comment_hints = line_hints.strip().startswith("//")
-        if ("requires" in line_hints or "ensures" in line_hints) and (not in_doc_hints) and (not is_comment_hints):
+        if ("invariant" in line_hints) and (not in_doc_hints) and (not is_comment_hints):
             spec_llm.append(line_hints.strip().replace(" ", ""))
         if line_hints.strip().endswith("*/"):
             in_doc_hints = not in_doc_hints
@@ -159,9 +159,16 @@ def check_no_cheating(body, body_reconstructed):
 def save_result_stats(model, test_file, success_attempt):
     results_file = f"results/results_summary/{model}_results.csv"
     os.makedirs(os.path.dirname(results_file), exist_ok=True)
+    if not os.path.exists(results_file):
+        df = pd.DataFrame(columns=["test_file", "success_on_attempt_#"])
+        df.to_csv(results_file, index=False)
     df = pd.read_csv(results_file)
-    new_test_result = {"test_file": test_file, "success_on_attempt_#": success_attempt}
-    df = df._append(new_test_result, ignore_index=True)
+
+    if test_file in df['test_file'].values:
+        df.loc[df['test_file'] == test_file, ['success_on_attempt_#']] = [success_attempt]
+    else:
+        new_test_result = {"test_file": test_file, "success_on_attempt_#": success_attempt}
+        df = df._append(new_test_result, ignore_index=True)
     df.to_csv(results_file, index=False)
 
 

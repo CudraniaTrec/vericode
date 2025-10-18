@@ -23,6 +23,7 @@ import time
 from pathos.multiprocessing import ProcessingPool as Pool
 import random
 import ray
+
 @ray.remote
 def compute_score_ray(input_tuple):
     return compute_score(input_tuple)

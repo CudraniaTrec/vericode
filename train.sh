@@ -1,11 +1,10 @@
 project_name='VeriCode'
 exp_name='grpo_qwen0_5B_py2dfy'
 WORLDSIZE=1
-GPUS_PER_NODE=6
-BoN=4
-BATCH_SIZE=384  
-PPO_MINI_BATCH_SIZE=96
-PPO_MICRO_BATCH_SIZE=16  
+GPUS_PER_NODE=8
+BoN=8
+BATCH_SIZE=512  
+PPO_MINI_BATCH_SIZE=128 
 TENSOR_MODEL_PARALLEL_SIZE=1
 
 MODEL_PATH="sft_ckpts/sft_0.5B" # Adjust if you want to use the 7B model or another
@@ -55,4 +54,4 @@ python -m verl.trainer.main_ppo \
     trainer.save_freq=5 \
     trainer.test_freq=5 \
     trainer.default_local_dir=rl_checkpoints/${exp_name} \
-    trainer.total_epochs=15 | tee ${exp_name}.log
+    trainer.total_epochs=20 | tee outputs/${exp_name}.log
